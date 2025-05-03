@@ -1,0 +1,35 @@
+<Page
+    x:Class="WpfDataBindingDemo.Views.ElementNameBindingDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfDataBindingDemo.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ElementName绑定示例"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    Background="AntiqueWhite"
+    mc:Ignorable="d">
+
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Margin="0,0,0,10" Text="拖动滑块来调整文本大小" />
+
+            <!--  滑块控件  -->
+            <Slider
+                x:Name="fontSizeSlider"
+                Margin="0,0,0,20"
+                Maximum="50"
+                Minimum="10"
+                TickFrequency="2"
+                TickPlacement="BottomRight"
+                Value="14" />
+
+            <!--  显示当前值  -->
+            <TextBlock Margin="0,0,0,10" Text="{Binding Value, ElementName=fontSizeSlider, StringFormat=当前字体大小: {0:F1}}" />
+
+            <!--  应用字体大小  -->
+            <TextBlock FontSize="{Binding Value, ElementName=fontSizeSlider}" Text="这段文字的大小会随着滑块的值变化而变化" />
+        </StackPanel>
+    </Grid>
+</Page> 

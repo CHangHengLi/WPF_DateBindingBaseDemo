@@ -1,0 +1,51 @@
+<Page
+    x:Class="WpfDataBindingDemo.Views.RelativeSourceBindingDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfDataBindingDemo.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="RelativeSource绑定示例"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    Background="AntiqueWhite"
+    mc:Ignorable="d">
+
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock
+                Margin="0,0,0,10"
+                FontSize="16"
+                Text="RelativeSource绑定示例" />
+
+            <ListBox Margin="0,10">
+                <ListBoxItem>
+                    <Border
+                        Padding="5"
+                        BorderBrush="Blue"
+                        BorderThickness="1">
+                        <TextBlock>
+                            <!--  使用RelativeSource查找ListBoxItem，并绑定到其Content属性  -->
+                            <Run>我的父级ListBoxItem的内容是:</Run>
+                            <Run Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Content}" />
+                        </TextBlock>
+                    </Border>
+                </ListBoxItem>
+                <ListBoxItem>第二项</ListBoxItem>
+                <ListBoxItem>第三项</ListBoxItem>
+            </ListBox>
+
+            <!--  使用RelativeSource绑定到当前窗口  -->
+            <Border
+                Margin="0,10"
+                Padding="5"
+                BorderBrush="Green"
+                BorderThickness="1">
+                <TextBlock>
+                    <Run>当前页面的标题是:</Run>
+                    <Run Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}, Path=Title}" />
+                </TextBlock>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page> 
