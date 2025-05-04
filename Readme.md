@@ -1,6 +1,7 @@
 # WPF 数据绑定演示程序
 
 这是一个基于.NET Core 8.0的WPF数据绑定演示程序，展示了WPF数据绑定的各种用法和特性。
+![image](https://github.com/user-attachments/assets/84d8ecd9-620c-4a44-babb-3036c6d283b1)
 
 ## 项目结构
 
